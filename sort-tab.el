@@ -158,7 +158,13 @@ If you want buffer hide, return t, or return nil.")
     ;; Disable wrap line.
     (setq-local truncate-lines t)
     ;; Disable window resize.
-    (setq-local window-size-fixed 'height))
+    (setq-local window-size-fixed 'height)
+    ;; Disable meow cursor type
+    (when (fboundp 'meow-mode)
+      (setq-local meow-cursor-type-default nil)
+      (setq-local meow-cursor-type-normal nil)
+      (setq-local meow-cursor-type-keypad nil))
+    )
 
   ;; Create sort-tab window.
   (sort-tab-create-window)
